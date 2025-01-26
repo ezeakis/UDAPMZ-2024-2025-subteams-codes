@@ -1,0 +1,29 @@
+# Εισαγωγή βιβλιοθηκών
+from sense_hat import SenseHat
+from time import sleep
+
+# Ρύθμιση του Sense HAT
+sense = SenseHat()
+sense.set_rotation(270)
+
+# Ρύθμιση του αισθητήρα χρωμάτων
+sense.color.gain = 60 # Ρύθμιση της ευαισθησίας του αισθητήρα
+sense.color.integration_cycles = 64 # Το μεσοδιάστημα κατά το οποίο θα γίνεται η ανάγνω
+
+# Display the image
+a = (255, 255, 255) # Άσπρο
+e = (0, 0, 205) # ΜεσαίουΜπλε
+v = (255, 0, 0) # Κόκκινο
+c = (0, 0, 0) # Black
+
+
+image = [
+a, a, c, a, a, c, a, a,
+a, v, a, c, c, a, v, a,
+v, e, v, c, c, v, e, v,
+a, v, a, c, c, a, v, a,
+a, a, v,c, c, v, a, a,
+a, v, v, c, c, v, v, a,
+v,e, v, a, a, a, e, v,
+v, v, a, a, a,a , v, v]
+sense.set_pixels(image)
