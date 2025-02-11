@@ -1,0 +1,53 @@
+﻿#Import the libraries
+from sense_hat import SenseHat
+from time import sleep
+
+
+# Set up the Sense HAT
+sense = SenseHat()
+sense.set_rotation(270)
+
+
+#Set up the colour sensor
+sense.color.gain = 60 # Set the sensitivity of the sensor
+sense.color.integration_cycles = 64 # The interval at which the reading will be taken
+
+
+# Add colour variables and image
+m = (34,139,34)
+q = (255,255,0)
+s = (139,69,19)
+v = (255,0,0)
+a = (255,255,255)
+
+
+rgb = sense.color # get the colour from the sensor
+c = (rgb.red, rgb.green, rgb.blue) # use the sensed colour
+ 
+for i in range(2):
+    rgb = sense.color # get the colour from the sensor
+    c = (rgb.red, rgb.green, rgb.blue)
+    image = [
+        a,a,a,a,a,a,a,a,
+        a,a,a,v,m,a,a,a,
+        a,a,a,m,m,a,a,a,
+        a,a,q,m,v,m,a,a,
+        a,a,m,m,m,m,a,a,
+        a,m,v,m,q,m,m,a,
+        m,m,m,m,m,m,m,m,
+        a,a,a,s,s,a,a,a,
+        ]
+
+
+    
+# Display the image
+sense.set_pixels(image)
+
+
+# Sleep for 30 second
+sleep(35)
+
+
+# Set a color to clear the display
+x = (178, 34, 34)  # firebrick color
+sense.clear(x)
