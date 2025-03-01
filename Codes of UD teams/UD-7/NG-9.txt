@@ -1,0 +1,35 @@
+# Import the libraries
+from sense_hat import SenseHat
+from time import sleep
+
+# Set up the Sense HAT
+sense = SenseHat()
+sense.set_rotation(270, False)
+
+# Set up the colour sensor
+sense.color.gain = 60 # Set the sensitivity of the sensor
+sense.color.integration_cycles = 64 # The interval at which the reading will be taken
+
+# Add colour variables and image
+a = (255, 255, 255) # White
+c = (0, 0, 0) # Black
+v = (255, 0, 0) # Red 
+for i in range(28):
+    rgb = sense.color # get the colour from the sensor
+    c = (rgb.red, rgb.green, rgb.blue,
+# image of a bicycle 
+    image = [   
+            
+        a, a, a, a, a, a, a, a,
+        c, c, c, a, a, a, a, a,
+        a, v, a, a, a, c, c, a,
+        a, v, v, v, v, v, v, a,
+        a, v, a, a, a, a, v, a,
+        c, c, c, a, a, c, c, c,
+        c, a, c, v, v, c, a, c,
+        c, c, c, a, a, c, c, c]
+    # Display the image
+    sense.set_pixels(image)
+    sleep(1)
+x = (178, 34, 34)  # choose your own red, green, blue values between 0 - 255
+sense.clear(x)
