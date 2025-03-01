@@ -1,0 +1,68 @@
+# Import the libraries
+from sense_hat import SenseHat
+from time import sleep
+
+# Set up the Sense HAT
+sense = SenseHat()
+sense.set_rotation(270, False)
+
+# Set up the colour sensor
+sense.color.gain = 60 # Set the sensitivity of the sensor
+sense.color.integration_cycles = 64 # The interval at which the reading will be taken
+
+# Add colour variables and image
+
+# Display the image
+for i in range(14):
+
+    #GR-6
+    a = (255, 255, 255)
+    c = (0, 0, 0)
+    f = (255, 193, 7)
+    m = (255, 152, 0)
+    i = (244, 67, 54)
+
+    rgb = sense.color # get the colour from the sensor
+    c = (rgb.red, rgb.green, rgb.blue)
+    
+    image = [
+        a, a, a, a, a, a, a, a,
+        a, a, a, a, a, a, a, a,
+        a, a, c, a, a, c, a, a,
+        a, a, f, f, f, f, a, a,
+        a, a, m, m, m, m, a, a,
+        a, a, a, i, i, a, a, a,
+        a, a, a, i, i, a, a, a,
+        a, a, a, a, a, a, a, a,
+    ]        
+    sense.set_pixels(image)
+    sleep(1)
+    
+    
+
+
+    #NG-8
+    a =(255, 255, 255)# White
+    c =(0, 0, 0)# Black
+    s =(139, 69, 19)# Saddlebrown
+
+    rgb = sense.color # get the colour from the sensor
+    c = (rgb.red, rgb.green, rgb.blue)
+    
+    image =[
+    s, a, s, a, a, s, a, s, 
+    s, a, s, a, a, s, a, s,
+    s, s, s, s, s, s, s, s,
+    s, a, c, s, s, c, a, s, 
+    s, s, s, s, s, s, s, s, 
+    s, s, s, c, c, s, s, s,
+    a, s, s, s, s, s, s, a,  
+    a, a, s, s, s, s, a, a] 
+    sense.set_pixels(image)
+    sleep(1)
+
+
+
+x = (178, 34, 34)  # choose your own White,Black,Saddlebrown values between 0 - 255
+sense.clear(x)
+
