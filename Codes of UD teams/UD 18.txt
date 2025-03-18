@@ -1,0 +1,73 @@
+# Εισαγωγή βιβλιοθηκών
+from sense_hat import SenseHat
+from time import sleep
+# Ρύθμιση του Sense HAT
+sense = SenseHat()
+sense.set_rotation(270)
+# Ρύθμιση του αισθητήρα χρωμάτων
+sense.color.gain = 60 # Ρύθμιση της ευαισθησίας του αισθητήρα
+sense.color.integration_cycles = 64 # Το μεσοδιάστημα κατά το οποίο θα γίνεται η ανάγνω
+# Display the image
+a = (255, 255, 255) # Άσπρο
+s = (139, 69, 19) # ΚαφέΣέλας
+w = (255, 192, 203) # Ρόζ
+e = (0, 0, 205) # ΜεσαίουΜπλε
+v = (255, 0, 0) # Κόκκινο
+image = [
+a, a, s, a, a, a, s, a,
+a, s, w, s, a, s, w, s,
+a, s, w, s, a, s, w, s,
+a, s, w, s, a, s, w, s,
+a, s, w, s, s, s, w, s,
+s, w, e, w, w, e, w, s,
+s,w, w, v, v, w, w, s,
+a, s, s, s, s, s, s, a]
+sense.set_pixels(image)
+sleep(1)
+
+
+#Team 2
+# Amina Abdullah , Rafal Hussain
+# Import the libraries
+from sense_hat import SenseHat
+from time import sleep
+
+# Set up the Sense HAT
+sense = SenseHat()
+sense.set_rotation(270)
+
+# Set up the colour sensor
+sense.color.gain = 60 # Set the sensitivity of the sensor
+sense.color.integration_cycles = 64 # The interval at which the reading will be taken
+
+# Add colour variables and image
+#g = (0, 191, 255) # deepskyblue
+q = (255, 255, 0) # yellow 
+v = (255, 0, 0) # red 
+l = (0, 255, 127) # springgreen 
+n = (154, 205, 50) # yellowgreen 
+m = (34, 139, 34) # ForestGreen
+g= (0, 0, 0) # DeepSkyBlue 
+
+for i in range(28):
+    rgb = sense.color # get the colour from the sensor
+    g = (rgb.red, rgb.green, rgb.blue)
+    image = [
+g,	g,	g,	g,	q,	q,	q,	q,
+g,	g,	g,	v,	g,	q,	q,	q,
+g,	g,	v,	q,	v,	g,	q,	q,
+g,	g,	g,	v,	g,	g,	g,	q,
+g,	g,	g,	m,	m,	g,	g,	g,
+g,	g,	m,	m,	g, 	g,	g,	g,
+g,	g,	g,	m,	g,	g,	g,	g,
+m,	m,	m,	m,	m,	m,	m,	m,
+]
+    
+# Display the image
+    sense.set_pixels(image)
+    sleep(1)
+
+x = (178, 34, 34)  # choose your own red, green, blue values between 0 - 255
+sense.clear(x)
+
+

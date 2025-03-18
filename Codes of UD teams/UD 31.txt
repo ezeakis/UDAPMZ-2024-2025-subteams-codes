@@ -1,0 +1,85 @@
+# Εισαγωγή βιβλιοθηκών
+from sense_hat import SenseHat
+from time import sleep
+
+# Ρύθμιση του Sense HAT
+sense = SenseHat()
+sense.set_rotation(270)
+
+# Ρύθμιση του αισθητήρα χρωμάτων
+sense.color.gain = 60 # Ρύθμιση της ευαισθησίας του αισθητήρα
+sense.color.integration_cycles = 64 # Το μεσοδιάστημα κατά το οποίο θα γίνεται η ανάγνω
+
+# Display the image
+a = (255, 255, 255) # Άσπρο
+e = (0, 0, 205) # ΜεσαίουΜπλε
+v = (255, 0, 0) # Κόκκινο
+c = (0, 0, 0) # Black
+
+
+image = [
+a, a, c, a, a, c, a, a,
+a, v, a, c, c, a, v, a,
+v, e, v, c, c, v, e, v,
+a, v, a, c, c, a, v, a,
+a, a, v,c, c, v, a, a,
+a, v, v, c, c, v, v, a,
+v,e, v, a, a, a, e, v,
+v, v, a, a, a,a , v, v]
+sense.set_pixels(image)
+
+
+sleep(1)
+
+#Import the libraries
+from sense_hat import SenseHat
+from time import sleep
+
+
+# Set up the Sense HAT
+sense = SenseHat()
+sense.set_rotation(270)
+
+
+#Set up the colour sensor
+sense.color.gain = 60 # Set the sensitivity of the sensor
+sense.color.integration_cycles = 64 # The interval at which the reading will be taken
+
+
+# Add colour variables and image
+m = (34, 139, 34) # ForestGreen
+n = (154, 205, 50) # YellowGreen
+k = (46, 139, 87) # SeaGreen
+c = (0, 0, 0) # Black
+r = (184, 134, 11) # DarkGoldenrod
+s = (139, 69, 19) # SaddleBrown
+
+
+rgb = sense.color # get the colour from the sensor
+c = (rgb.red, rgb.green, rgb.blue) # use the sensed colour
+ 
+for i in range(2):
+    rgb = sense.color # get the colour from the sensor
+    c = (rgb.red, rgb.green, rgb.blue)
+    image =[
+    c,c,c,k,n,c,c,c,
+    c,c,c,n,k,c,c,c,
+    c,c,k,m,n,k,c,c,
+    c,m,k,m,k,m,k,c,
+    k,m,m,m,m,m,m,k,
+    m,k,n,s,s,n,k,m,
+    c,c,c,s,s,c,c,c,
+    c,c,r,r,r,r,c,c]
+
+
+# Display the image
+sense.set_pixels(image)
+
+
+# Sleep for 30 second
+sleep(35)
+
+
+# Set a color to clear the display
+x = (178, 34, 34)  # firebrick color
+sense.clear(x)
